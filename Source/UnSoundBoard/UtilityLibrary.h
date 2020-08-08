@@ -16,6 +16,6 @@ class UNSOUNDBOARD_API UUtilityLibrary : public UBlueprintFunctionLibrary
 
 public:
     UFUNCTION(BlueprintPure, Category = "UnSoundBoardUtil")
-	static void GetFilesInFolder(TArray<FString>& out, FString SearchPath);
+	static void GetFilesInFolder(TArray<FString>& out, FString SearchPath, bool bFindFiles=true, bool bFindDirectories=true);
 	
 };
