@@ -13,3 +13,19 @@ void UUtilityLibrary::GetFilesInFolder(TArray<FString>& out, FString SearchPath,
     FileManager.FindFiles(out, *SearchPath, bFindFiles, bFindDirectories);
     out.Sort();
 }
+
+FString UUtilityLibrary::GetRandomFileInSubfolder(FString RootDir, FString Subdirname)
+{
+    FPaths::NormalizeDirectoryName(RootDir);
+    FPaths::NormalizeDirectoryName(Subdirname);
+    FString fullSubdirectoryPath = RootDir + "/" + Subdirname;
+    UE_LOG(LogTemp, Warning, TEXT("Finding files in: %s"), *fullSubdirectoryPath);
+
+    IFileManager& FileManager = IFileManager::Get();
+    TArray<FString> foundFiles;
+    FileManager.FindFiles(foundFiles, *fullSubdirectoryPath, true, false);
+    
+    int randomIndex = FMath::RandRange(0, foundFiles.Num());
+    return fullSubdirectoryPath + "/" + foundFiles[randomIndex];
+}
+
