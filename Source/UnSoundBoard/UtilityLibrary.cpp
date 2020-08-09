@@ -11,4 +11,5 @@ void UUtilityLibrary::GetFilesInFolder(TArray<FString>& out, FString SearchPath,
     UE_LOG(LogTemp, Warning, TEXT("Finding files in: %s"), *SearchPath);
     IFileManager& FileManager = IFileManager::Get();
     FileManager.FindFiles(out, *SearchPath, bFindFiles, bFindDirectories);
+    out.Sort();
 }
