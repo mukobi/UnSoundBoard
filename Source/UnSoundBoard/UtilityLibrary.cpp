@@ -8,7 +8,7 @@ void UUtilityLibrary::GetFilesInFolder(TArray<FString>& out, FString SearchPath,
 {
     FPaths::NormalizeDirectoryName(SearchPath);
     SearchPath = SearchPath + "/*"; // necessary to find folder contents
-    UE_LOG(LogTemp, Warning, TEXT("Finding files in: %s"), *SearchPath);
+    //UE_LOG(LogTemp, Warning, TEXT("Finding files in: %s"), *SearchPath);
     IFileManager& FileManager = IFileManager::Get();
     FileManager.FindFiles(out, *SearchPath, bFindFiles, bFindDirectories);
     out.Sort();
@@ -20,7 +20,7 @@ FString UUtilityLibrary::GetRandomFileInSubfolder(FString RootDir, FString Subdi
     FPaths::NormalizeDirectoryName(Subdirname);
     FString fullSubdirectoryPath = RootDir + "/" + Subdirname;
     FString fullSearchpath = fullSubdirectoryPath + "/*";
-    UE_LOG(LogTemp, Warning, TEXT("Finding files in: %s"), *fullSearchpath);
+    //UE_LOG(LogTemp, Warning, TEXT("Finding files in: %s"), *fullSearchpath);
 
     IFileManager& FileManager = IFileManager::Get();
     TArray<FString> foundFiles;
