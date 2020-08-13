@@ -44,6 +44,6 @@ bool ASoundPlayer::PlayMediaByPath(const FString& path)
 {
 	const FString fileAppendedPath = FString(TEXT("file://")) + path;
 
-	return PlayMediaByPathAndPlayer(fileAppendedPath, MediaPlayer0);
+	return PlayMediaByPathAndPlayer(fileAppendedPath, MediaPlayers[0]);
 }
 

@@ -20,7 +20,7 @@ protected:
 	virtual void BeginPlay() override;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	class UMediaPlayer* MediaPlayer0;
+	TArray<class UMediaPlayer*> MediaPlayers;
 
 	bool PlayMediaByPathAndPlayer(const FString& path, class UMediaPlayer* mediaPlayer);
 
