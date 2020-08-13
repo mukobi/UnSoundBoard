@@ -9,11 +9,6 @@ ASoundPlayer::ASoundPlayer()
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = false;
-
-	SceneRoot = CreateDefaultSubobject<USceneComponent>(TEXT("Scene Root"));
-
-	MediaSoundComponent = CreateDefaultSubobject<UMediaSoundComponent>(TEXT("Media Sound"));
-	MediaSoundComponent->SetupAttachment(SceneRoot);
 }
 
 // Called when the game starts or when spawned
@@ -23,6 +18,7 @@ void ASoundPlayer::BeginPlay()
 	
 }
 
+
 // Called every frame
 void ASoundPlayer::Tick(float DeltaTime)
 {
@@ -30,19 +26,24 @@ void ASoundPlayer::Tick(float DeltaTime)
 
 }
 
-bool ASoundPlayer::PlayMediaByPath(const FString& path)
+bool ASoundPlayer::PlayMediaByPathAndPlayer(const FString& fileAppendedPath, UMediaPlayer* mediaPlayer)
 {
-	const FString fileAppendedPath = FString(TEXT("file://")) + path;
-
-	UMediaPlayer* mediaPlayer = MediaSoundComponent->GetMediaPlayer();
-	if (!mediaPlayer || !mediaPlayer->CanPlayUrl(fileAppendedPath))
+    if (!mediaPlayer || !mediaPlayer->CanPlayUrl(fileAppendedPath))
 	{
 		const FString errorMessage = FString(TEXT("Can't play ")) + fileAppendedPath;
 		GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, errorMessage);
 		return false;
 	}
-	// else can play url
+    // else can play url
 	mediaPlayer->OpenUrl(fileAppendedPath);
+	GEngine->AddOnScreenDebugMessage(-1, 5, FColor::Green, fileAppendedPath);
 	return true;
+}
+
+bool ASoundPlayer::PlayMediaByPath(const FString& path)
+{
+	const FString fileAppendedPath = FString(TEXT("file://")) + path;
+
+	return PlayMediaByPathAndPlayer(fileAppendedPath, MediaPlayer0);
 }
 

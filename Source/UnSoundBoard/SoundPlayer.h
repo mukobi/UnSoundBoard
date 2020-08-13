@@ -18,12 +18,12 @@ public:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
-	
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
-    USceneComponent* SceneRoot;
 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	class UMediaSoundComponent* MediaSoundComponent;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	class UMediaPlayer* MediaPlayer0;
+
+	bool PlayMediaByPathAndPlayer(const FString& path, class UMediaPlayer* mediaPlayer);
+
 
 public:	
 	// Called every frame
