@@ -36,4 +36,7 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	bool PlayMediaByPath(const FString& path);
+
+	UFUNCTION(BlueprintCallable)
+	void StopAllSounds();
 };

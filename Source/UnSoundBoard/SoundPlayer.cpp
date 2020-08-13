@@ -51,3 +51,11 @@ bool ASoundPlayer::PlayMediaByPath(const FString& path)
 	return PlayMediaByPathAndPlayer(fileAppendedPath, mediaPlayer);
 }
 
+void ASoundPlayer::StopAllSounds()
+{
+	for (UMediaPlayer* mediaPlayer : MediaPlayers)
+	{
+		mediaPlayer->Close();
+	}
+}
+
