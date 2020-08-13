@@ -19,9 +19,14 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	TArray<class UMediaPlayer*> MediaPlayers;
 
+    UPROPERTY()
+	uint32 CurrentMediaPlayerIndex = 0;
+
+
+protected:
 	bool PlayMediaByPathAndPlayer(const FString& path, class UMediaPlayer* mediaPlayer);
 
 

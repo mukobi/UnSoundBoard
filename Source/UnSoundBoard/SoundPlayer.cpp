@@ -36,7 +36,7 @@ bool ASoundPlayer::PlayMediaByPathAndPlayer(const FString& fileAppendedPath, UMe
 	}
     // else can play url
 	mediaPlayer->OpenUrl(fileAppendedPath);
-	GEngine->AddOnScreenDebugMessage(-1, 5, FColor::Green, fileAppendedPath);
+	GEngine->AddOnScreenDebugMessage(-1, 1.5f, FColor::Green, fileAppendedPath);
 	return true;
 }
 
@@ -44,6 +44,10 @@ bool ASoundPlayer::PlayMediaByPath(const FString& path)
 {
 	const FString fileAppendedPath = FString(TEXT("file://")) + path;
 
-	return PlayMediaByPathAndPlayer(fileAppendedPath, MediaPlayers[0]);
+	UMediaPlayer* mediaPlayer = MediaPlayers[CurrentMediaPlayerIndex];
+	CurrentMediaPlayerIndex += 1;
+	CurrentMediaPlayerIndex %= MediaPlayers.Num();
+
+	return PlayMediaByPathAndPlayer(fileAppendedPath, mediaPlayer);
 }
 
