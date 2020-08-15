@@ -18,7 +18,7 @@ public:
     UFUNCTION(BlueprintPure, Category = "UnSoundBoardUtil")
 	static void GetFilesInFolder(TArray<FString>& out, FString SearchPath, bool bFindFiles=true, bool bFindDirectories=true);
 	
-    
-    UFUNCTION(BlueprintPure, Category = "UnSoundBoardUtil")
+    UFUNCTION(BlueprintCallable, Category = "UnSoundBoardUtil")
 	static FString GetRandomFileInSubfolder(FString RootDir, FString Subdirname);
+
 };

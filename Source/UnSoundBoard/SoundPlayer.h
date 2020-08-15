@@ -23,7 +23,7 @@ protected:
 	TArray<class UMediaPlayer*> MediaPlayers;
 
     UPROPERTY()
-	uint32 CurrentMediaPlayerIndex = 0;
+    uint32 CurrentMediaPlayerIndex = 0;
 
 	UPROPERTY(BlueprintAssignable, Category = "SoundPlayer")
 	FFilePlayedDelegate OnFilePlayed;
