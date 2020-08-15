@@ -22,6 +22,7 @@ bool ASoundPlayer::PlayMediaByPathAndPlayer(const FString& fileAppendedPath, UMe
     // else can play url
 	mediaPlayer->OpenUrl(fileAppendedPath);
 	GEngine->AddOnScreenDebugMessage(-1, 1.5f, FColor::Green, fileAppendedPath);
+	OnFilePlayed.Broadcast(fileAppendedPath);
 	return true;
 }
 
