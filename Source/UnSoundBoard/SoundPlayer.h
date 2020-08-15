@@ -16,8 +16,6 @@ public:
 	ASoundPlayer();
 
 protected:
-	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	TArray<class UMediaPlayer*> MediaPlayers;
@@ -31,9 +29,6 @@ protected:
 
 
 public:	
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
-
 	UFUNCTION(BlueprintCallable)
 	bool PlayMediaByPath(const FString& path);
 

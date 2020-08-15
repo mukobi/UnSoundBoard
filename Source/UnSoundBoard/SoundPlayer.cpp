@@ -11,21 +11,6 @@ ASoundPlayer::ASoundPlayer()
 	PrimaryActorTick.bCanEverTick = false;
 }
 
-// Called when the game starts or when spawned
-void ASoundPlayer::BeginPlay()
-{
-	Super::BeginPlay();
-	
-}
-
-
-// Called every frame
-void ASoundPlayer::Tick(float DeltaTime)
-{
-	Super::Tick(DeltaTime);
-
-}
-
 bool ASoundPlayer::PlayMediaByPathAndPlayer(const FString& fileAppendedPath, UMediaPlayer* mediaPlayer)
 {
     if (!mediaPlayer || !mediaPlayer->CanPlayUrl(fileAppendedPath))
