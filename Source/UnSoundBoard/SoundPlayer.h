@@ -38,4 +38,7 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	void StopAllSounds();
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	bool bAllowSimultaneousSounds = true;
 };

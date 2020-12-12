@@ -31,8 +31,11 @@ bool ASoundPlayer::PlayMediaByPath(const FString& path)
 	const FString fileAppendedPath = FString(TEXT("file://")) + path;
 
 	UMediaPlayer* mediaPlayer = MediaPlayers[CurrentMediaPlayerIndex];
-	CurrentMediaPlayerIndex += 1;
-	CurrentMediaPlayerIndex %= MediaPlayers.Num();
+	if (bAllowSimultaneousSounds)
+	{
+		CurrentMediaPlayerIndex += 1;
+		CurrentMediaPlayerIndex %= MediaPlayers.Num();
+	}
 
 	return PlayMediaByPathAndPlayer(fileAppendedPath, mediaPlayer);
 }
