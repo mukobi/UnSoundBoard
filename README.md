@@ -1,7 +1,7 @@
 # UnSoundBoard
 A clean soundboard application built in Unreal Engine 4.
 
-<img src="./Screenshots/USB Screenshot.JPG"  width="66%">
+<img src="./Screenshots/USB Screenshot.jpg"  width="66%">
 
 ## Description
 
